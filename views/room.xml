@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_form_room" model="ir.ui.view">
+            <field name="name">Room View Form</field>
+            <field name="model">hotel_reservation.room</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="number"/>
+                            </group>
+                            <group>
+                                <field name="floor"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_tree_room" model="ir.ui.view">
+            <field name="name">Room View Tree</field>
+            <field name="model">hotel_reservation.room</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="number"/>
+                    <field name="floor"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_room_form" model="ir.actions.act_window">
+            <field name="name">Habitaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel_reservation.room</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear una nueva habitación
+                </p>
+            </field>
+        </record>
+        <menuitem action="hotel_reservation.action_room_form" id="menu_action_room_form" parent="hotel_reservation.menu_hotel_config"/>
+    </data>
+</odoo>

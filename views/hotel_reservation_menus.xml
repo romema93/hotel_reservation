@@ -1,0 +1,6 @@
+<odoo>
+    <data>
+        <menuitem name="Hotel" id="hotel_reservation.menu_root"/>
+        <menuitem name="Configuracion" id="hotel_reservation.menu_hotel_config" parent="hotel_reservation.menu_root"/>
+    </data>
+</odoo>
