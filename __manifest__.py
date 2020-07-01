@@ -22,9 +22,12 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'views/hotel_reservation_menus.xml',
         'views/room_type.xml',
-        'views/room.xml'
+        'views/room.xml',
+        'views/rate_type.xml',
+        'views/booking.xml'
     ],
     'application': True
 }

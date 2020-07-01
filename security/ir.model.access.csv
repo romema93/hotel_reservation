@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hote_reservation_hote_reservation,hote_reservation.hote_reservation,model_hote_reservation_hote_reservation,base.group_user,1,1,1,1
+access_hotel_reservation_room_group_user,hotel_reservation.room,model_hotel_reservation_room,base.group_user,1,1,1,0
+access_hotel_reservation_room_group_system,hotel_reservation.room,model_hotel_reservation_room,base.group_system,1,1,1,1
+access_hotel_reservation_room_type_group_user,hotel_reservation.room_type,model_hotel_reservation_room_type,base.group_user,1,1,1,1

@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="view_form_room" model="ir.ui.view">
-            <field name="name">Room View Form</field>
+        <record id="room_view_form" model="ir.ui.view">
+            <field name="name">room_view_form</field>
             <field name="model">hotel_reservation.room</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <div class="oe_title">
+                            <label for="number" class="oe_edit_only"/>
+                            <h1>
+                                <field name="number" placeholder="101"/>
+                            </h1>
+                        </div>
                         <group>
-                            <group>
-                                <field name="number"/>
-                            </group>
                             <group>
                                 <field name="floor"/>
+                                <field name="room_type_id"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
                             </group>
                         </group>
-                        <group>
-                            <field name="description"/>
-                        </group>
+                        <notebook>
+                            <page name="rates" string="Tarifas">
+                                <field name="rate_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
+
         <record id="view_tree_room" model="ir.ui.view">
             <field name="name">Room View Tree</field>
             <field name="model">hotel_reservation.room</field>
@@ -44,6 +55,7 @@
                 </p>
             </field>
         </record>
-        <menuitem action="hotel_reservation.action_room_form" id="menu_action_room_form" parent="hotel_reservation.menu_hotel_config"/>
+        <menuitem action="hotel_reservation.action_room_form" id="menu_action_room_form"
+                  parent="hotel_reservation.menu_hotel_config"/>
     </data>
 </odoo>

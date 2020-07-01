@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="booking_view_form">
+            <field name="name">Reservas</field>
+            <field name="model">hotel_reservation.booking</field>
+            <field name="arch" type="xml">
+                <form string="Reservas">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="guest_id"/>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Habitaciones">
+                                <field name="room_booked_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_booking_form" model="ir.actions.act_window">
+            <field name="name">Reservas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel_reservation.booking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear una nueva reserva
+                </p>
+            </field>
+        </record>
+        <menuitem action="action_booking_form" id="menu_action_booking_form" parent="hotel_reservation.menu_root" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="rate_type_view_form" model="ir.ui.view">
+            <field name="name">rate_type_view_form</field>
+            <field name="model">hotel_reservation.rate.type</field>
+            <field name="arch" type="xml">
+                <form string="rate_type_form">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="rate_type" class="oe_edit_only"/>
+                            <h1>
+                                <field name="rate_type"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_rate_type_form" model="ir.actions.act_window">
+            <field name="name">Tipos de tarifa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel_reservation.rate.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo tipo de tarifa
+                </p>
+            </field>
+        </record>
+        <menuitem action="hotel_reservation.action_rate_type_form" id="menu_action_rate_type_form"
+                  parent="hotel_reservation.menu_hotel_config"/>
+    </data>
+</odoo>
