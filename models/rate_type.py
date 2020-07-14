@@ -5,6 +5,7 @@ from odoo import models, fields
 
 class RateType(models.Model):
     _name = "hotel_reservation.rate.type"
+    _rec_name = "rate_type"
 
     rate_type = fields.Char(string="Nombre", required=True)
     description = fields.Char(string="Descripción")

@@ -32,7 +32,7 @@ class Room(models.Model):
     # sequence // Integer permite definir el orden de los registros en tipos de vista lista (arlbol) y puede configurarse mediante un drag and drop
     # state // Selection representa los estados de un registro
 
-    # Atributos de Campos
+    # Parametros de configuracion de los atributos
 
     # string // definir el texto de la etiqueta usada para las vistas
     # default // definir un valor por defecto en la acciones de creacion de un registro

@@ -9,18 +9,33 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="guest_id"/>
+                                <field name="guest_id" context="{'default_guest': 1}"/>
                                 <field name="date_from"/>
                                 <field name="date_to"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="Habitaciones">
-                                <field name="room_booked_ids"/>
+                                <field name="room_booked_ids">
+                                    <tree>
+                                        <field name="room_id"/>
+                                        <field name="rate"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+        <record id="hotel_booking_view_tree" model="ir.ui.view">
+            <field name="name">hotel_booking_view_tree</field>
+            <field name="model">hotel_reservation.booking</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="guest_id"/>
+                    <field name="state"/>
+                </tree>
             </field>
         </record>
         <record id="action_booking_form" model="ir.actions.act_window">
@@ -34,6 +49,7 @@
                 </p>
             </field>
         </record>
-        <menuitem action="action_booking_form" id="menu_action_booking_form" parent="hotel_reservation.menu_root" sequence="1"/>
+        <menuitem action="action_booking_form" id="menu_action_booking_form" parent="hotel_reservation.menu_root"
+                  sequence="1"/>
     </data>
 </odoo>

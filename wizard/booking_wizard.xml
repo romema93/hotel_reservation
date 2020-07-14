@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="booking_detail_wizard_view_tree" model="ir.ui.view">
+            <field name="name">booking_detail_wizard_view_tree</field>
+            <field name="model">hotel_reservation.booking.detail.wizard</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="room_id"/>
+                    <field name="room_type_id"/>
+                    <field name="rate"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hotel_booking_wizard_view_form" model="ir.ui.view">
+            <field name="name">hotel_booking_wizard_view_form</field>
+            <field name="model">hotel_reservation.booking.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="4">
+                        <group colspan="2">
+                            <field name="room_type_id"/>
+                        </group>
+                        <group colspan="3">
+                            <label for="date_from" string="Fecha"/>
+                            <div class="o_row">
+                                <field name="date_from" widget="daterange" nolabel="1" class="oe_inline"
+                                       options="{'related_end_date': 'date_to'}"/>
+                                <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                <field name="date_to" widget="daterange" nolabel="1" class="oe_inline"
+                                       options="{'related_start_date': 'date_from'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <footer>
+                        <button type="object" name="search_rooms"
+                                string="Buscar habitaciones" class="oe_highlight"/>
+                        <button special="cancel" string="Cancelar"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_booking_wizard"
+                    name="Buscar habitaciones"
+                    res_model="hotel_reservation.booking.wizard"
+                    view_mode="form"
+                    target="new"
+        />
+        <act_window id="action_booking_wizard_generate"
+                    name="Generar Reserva"
+                    binding_model="hotel_reservation.booking.detail.wizard"
+                    res_model="hotel_reservation.booking"
+                    view_mode="form"
+                    target="current"
+        />
+        <menuitem id="menu_booking_wizard" name="Reserva nueva" parent="hotel_reservation.menu_root"
+                  action="action_booking_wizard"
+                  sequence="2"/>
+    </data>
+</odoo>

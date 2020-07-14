@@ -25,9 +25,11 @@
         'security/ir.model.access.csv',
         'views/hotel_reservation_menus.xml',
         'views/room_type.xml',
-        'views/room.xml',
+        # 'views/room.xml',
         'views/rate_type.xml',
-        'views/booking.xml'
+        'views/booking.xml',
+        'views/rate.xml',
+        'wizard/booking_wizard.xml'
     ],
     'application': True
 }

@@ -16,10 +16,21 @@
                         <group col="2">
                             <group>
                                 <field name="description"/>
+                                <field name="active" invisible="1"/>
                             </group>
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+        <record id="hotel_rate_type_view_tree" model="ir.ui.view">
+            <field name="name">hotel_rate_type_view_tree</field>
+            <field name="model">hotel_reservation.rate.type</field>
+            <field name="arch" type="xml">
+                <tree string="hotel_rate_type_tree">
+                    <field name="rate_type"/>
+                    <field name="description"/>
+                </tree>
             </field>
         </record>
         <record id="action_rate_type_form" model="ir.actions.act_window">
